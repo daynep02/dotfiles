@@ -1,12 +1,5 @@
 return {
   {
-    'AlphaTechnolog/pywal.nvim',
-    config = function() 
-      local pywal = require('pywal')
-      pywal.setup()
-    end
-  },
-  {
     "catppuccin/nvim", name = "catppuccin", priority = 100, 
     opts = {
       transparent_background = true,
@@ -17,7 +10,7 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { 'nvim-tree/nvim-web-devicons' },
 	    config = function ()require("lualine").setup {
-	      options = { theme = "pywal-nvim" }
+	      --options = { theme = "pywal-nvim" }
 	    }
 	end
   }

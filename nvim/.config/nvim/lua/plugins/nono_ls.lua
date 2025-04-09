@@ -9,6 +9,10 @@ return {
       local async = event == "BufWritePost"
 
       null_ls.setup({
+        sources = {
+          null_ls.builtins.diagnostics.cppcheck,
+          null_ls.builtins.formatting.clang_format
+        },
         on_attach = function(client, bufnr)
           if client.supports_method("textDocument/formatting") then
             vim.keymap.set("n", "<Leader>f", function()
