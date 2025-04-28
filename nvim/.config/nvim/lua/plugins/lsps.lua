@@ -29,7 +29,7 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    opts = { },
+    opts = {},
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local lspconfig = require('lspconfig')
@@ -37,7 +37,7 @@ return {
       require("mason-lspconfig").setup()
       require("mason-lspconfig").setup_handlers {
         function(server_name)
-          lspconfig[server_name].setup{ capabilities = capabilities}
+          lspconfig[server_name].setup { capabilities = capabilities }
         end
       }
 
@@ -46,11 +46,6 @@ return {
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
       vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
       vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, {})
-      vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-      vim.lsp.diagnostic.on_publish_diagnostics, {
-        virtual_text = true
-    }
-)
     end
   },
   {
