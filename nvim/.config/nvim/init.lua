@@ -8,7 +8,7 @@ vim.opt.softtabstop = 2
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-local function augroup(name) 
+local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_"..name, {clear = true})
 end
 vim.api.nvim_create_autocmd("VimEnter", {

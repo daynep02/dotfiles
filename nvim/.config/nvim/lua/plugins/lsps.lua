@@ -1,39 +1,13 @@
 return {
   {
-    'nvim-java/nvim-java',
-    config = function()
-      require('java').setup()
-    end
-  },
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      esnure_installed = {
-        "clangd",
-        "clang-format",
-        "lua_ls",
-        "vls",
-        "java-language-server",
-        "codelldb",
-        "gopls",
-        "cmake",
-      }
-    }
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    lazy = false,
-    opts = {
-      auto_install = true,
-    }
-  },
-  {
     "neovim/nvim-lspconfig",
     opts = {},
     config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
       local lspconfig = require('lspconfig')
-      require("mason").setup()
+      require("mason").setup(
+        { log_level = vim.log.levels.DEBUG }
+      )
       require("mason-lspconfig").setup()
       require("mason-lspconfig").setup_handlers {
         function(server_name)
