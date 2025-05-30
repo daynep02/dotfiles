@@ -9,6 +9,7 @@ local MLspConfig = {
     ensure_installed = {
       "lua_ls",
       "clangd",
+      "pyright",
     }
   },
   dependencies = {
