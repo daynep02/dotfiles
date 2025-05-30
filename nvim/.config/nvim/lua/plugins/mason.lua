@@ -1,23 +1,25 @@
-return {
-  {
-    "mason-org/mason.nvim",
-    version = "^1.0.0",
-    opts = {
-    },
+local Mason = {
+  "mason-org/mason.nvim",
+  opts = {},
+}
+
+local MLspConfig = {
+  "mason-org/mason-lspconfig.nvim",
+  opts = {
+    ensure_installed = {
+      "lua_ls",
+      "clangd",
+    }
   },
-  {
-    "mason-org/mason-lspconfig.nvim",
-    version = "^1.0.0",
-    opts = {
-      auto_install = true,
-      ensure_installed = {
-        "clangd",
-        "hls",
-        "lua_ls",
-        "vls",
-        "gopls",
-        "cmake",
-      },
-    },
+  dependencies = {
+    { "mason-org/mason.nvim", opts = {} },
+    "neovim/nvim-lspconfig",
   }
 }
+
+local lspConfig = {
+  "neovim/nvim-lspconfig",
+  opts = {}
+}
+
+return MLspConfig
